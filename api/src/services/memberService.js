@@ -30,14 +30,14 @@ const memberService = {
     },
     
     createMember: (member) => {
-        return new Promise((resolve, reject) => {
+        return new Promise((accept, reject) => {
             const sql = 'INSERT INTO Members SET ?';
             db.query(sql, member, (err, results) => {
                 if (err) {
                     reject(err);
                     return;
                 }
-                resolve(results.insertId);
+                accept(results.insertId);
             });
         });
     },
