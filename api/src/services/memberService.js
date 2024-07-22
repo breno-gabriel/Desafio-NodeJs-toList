@@ -14,7 +14,21 @@ const memberService = {
         });
     },
 
+    getMember: (memberId) => {
 
+        return new Promise((accept, reject) => {
+            const sql = 'SELECT * FROM Members WHERE id = ?';
+            db.query(sql, memberId, (err, results) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                accept(results);
+            });
+        });
+
+    },
+    
     createMember: (member) => {
         return new Promise((resolve, reject) => {
             const sql = 'INSERT INTO Members SET ?';

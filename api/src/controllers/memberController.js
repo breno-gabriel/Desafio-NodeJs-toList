@@ -10,6 +10,19 @@ const memberController = {
         }
     },
 
+    getMember: async (req, res) => {
+
+        try {
+
+            const memberId = req.params.id
+            const member = await memberService.getMember(memberId);
+            res.json({messagem: "Usuario encontrado com sucesso", result: member});
+        } catch (err) {
+            res.status(500).json({ message: 'Erro ao buscar membro', error: err });
+        }
+
+    },
+
     createMember: async (req, res) => {
         try {
             const newMember = req.body;
