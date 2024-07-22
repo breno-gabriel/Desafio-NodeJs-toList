@@ -10,6 +10,16 @@ const memberController = {
         }
     },
 
+    createMember: async (req, res) => {
+        try {
+            const newMember = req.body;
+            const memberId = await memberService.createMember(newMember);
+            res.status(201).json({id: memberId});
+        } catch (err) {
+            res.status(500).send(err);
+        }
+    },
+
 };
 
 module.exports = memberController;
