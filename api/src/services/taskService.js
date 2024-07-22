@@ -2,15 +2,17 @@ const db = require('../config/db');
 
 const TaskService = {
 
-    createTask: (task) => {
+    createTask: ({nome, descricao, prioridade, id_membro}) => {
 
         return new Promise((accept, reject) => {
 
             const sql = 'INSERT INTO Task SET ?';
 
-            db.query(sql, task, (err, results) => {
+            db.query(sql, {nome, descricao, prioridade, id_membro}, (err, results) => {
 
                 if (err) {
+
+                    console.log(err);
 
                     reject(err); 
                     return;
@@ -48,11 +50,12 @@ const TaskService = {
 
     },
 
-    getTaskbyId: (taskId) => {
+    getTaskById: (taskId) => {
 
         return new Promise((accept, reject) => {
 
             const sql = 'SELECT * FROM Task WHERE id = ?';
+
 
             db.query(sql, taskId, (err, results) => {
 
@@ -71,13 +74,13 @@ const TaskService = {
 
     },
 
-    updateTask: (task) => {
+    updateTask: (taskId, {nome, descricao, finalizada, data_termino, prioridade, id_membro}) => {
 
-        return new Promise((accet, reject) => {
+        return new Promise((accept, reject) => {
 
-            const sql = 'UPDATE Task SET ? WHERE id = ?';
+            const sql = 'UPDATE ';
 
-            db.query(sql, task, task.id, (err, results) => {
+            db.query(sql, task, taskId, (err, results) => {
 
                 if (err) {
 
