@@ -1,0 +1,1 @@
+const memberService = require('./services/memberService');
