@@ -1,9 +1,15 @@
+import { Button } from "@/components/ui/button";
+
 function Home() {
 
     return (
 
         <div>
-            hello world
+
+            <p className="text-blue-700">Hello world</p>
+
+            <Button>Listagem de tarefas</Button>
+            <Button>Cadastro de membros</Button>
         </div>
 
     );
