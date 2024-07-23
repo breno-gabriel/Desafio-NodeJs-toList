@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { DataTable } from "@/components/ui/table/data-table";
 import { Task, columns } from "../components/ui/table/columns";
+import { Button } from '@/components/ui/button';
 
 async function getData(): Promise<Task[]> {
   try {
@@ -41,8 +42,11 @@ function TaskList() {
   }
 
   return (
-    <div className='py-20 px-14'>
+    <div className='py-20 px-14 flex flex-col gap-56'>
       <DataTable columns={columns} data={data} />
+      <div className='flex justify-end'>
+        <Button className="bg-white w-auto">Cadastrar tarefa</Button>
+      </div>
     </div>
   );
 }
