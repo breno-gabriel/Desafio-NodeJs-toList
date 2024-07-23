@@ -41,6 +41,7 @@ const memberService = {
             });
         });
     },
+
 };
 
 module.exports = memberService;
