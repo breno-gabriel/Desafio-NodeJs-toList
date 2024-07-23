@@ -1,7 +1,6 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import internal from "stream"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -28,9 +27,19 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: "descricao",
     header: "descricao",
+    cell: ({row}) => {
+
+      return <div >{row.getValue("descricao")}</div>
+
+  }
   },
   {
     accessorKey: "prioridade",
     header: "prioridade",
+    cell: ({row}) => {
+
+      return <div >{row.getValue("prioridade")}</div>
+
+  }
   },
 ]

@@ -3,19 +3,22 @@ import { DataTable } from "@/components/ui/table/data-table";
 import { Task, columns } from "../components/ui/table/columns";
 
 async function getData(): Promise<Task[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "1",
-      nome: "Estudar PLC",
-      descricao: "Estudar pq nao quero reprovar",
-      finalizada: 0,
-      data_termino: null,
-      prioridade: "Alta",
-      id_membro: "2",
-    },
-    // ...
-  ];
+  try {
+    const response = await fetch("http://localhost:3000/api/getAllTasks");
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data: { message: string, results: Task[] } = await response.json();
+
+    console
+
+    return data.results;
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+    return []; 
+  }
 }
 
 function TaskList() {
