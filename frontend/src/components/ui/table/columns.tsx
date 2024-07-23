@@ -1,6 +1,7 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
+import { Checkbox } from "@/components/ui/checkbox"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -25,13 +26,17 @@ export const columns: ColumnDef<Task>[] = [
     }
   },
   {
-    accessorKey: "descricao",
-    header: "descricao",
+    accessorKey: "finalizada",
+    header: "finalizada",
     cell: ({row}) => {
 
-      return <div >{row.getValue("descricao")}</div>
+      // console.log(row.getValue("finalizada"))
 
-  }
+      const finished = row.getValue("finalizada") === 0 ? "Ainda não" : "Finalizada";
+  
+      return <div>{finished}</div>; 
+
+  },
   },
   {
     accessorKey: "prioridade",
@@ -42,4 +47,39 @@ export const columns: ColumnDef<Task>[] = [
 
   }
   },
+  
+  {
+    accessorKey: "prioridade",
+    header: "",
+    cell: ({row}) => {
+
+      return <button className="bg-red-700">deletar</button>
+
+  }
+  },
+
+  {
+    accessorKey: "prioridade",
+    header: "",
+    cell: ({row}) => {
+
+      return <button className="bg-blue-800">editar</button>
+
+  }
+  }, 
+
+  {
+    accessorKey: "prioridade",
+    header: "",
+    cell: ({row}) => {
+
+      return <div className="flex gap-2">
+        <Checkbox />
+        <p>Concluir tarefa</p>
+      </div>
+
+
+  }
+  }
+
 ]

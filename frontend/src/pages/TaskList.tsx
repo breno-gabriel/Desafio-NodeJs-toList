@@ -7,7 +7,7 @@ async function getData(): Promise<Task[]> {
     const response = await fetch("http://localhost:3000/api/getAllTasks");
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Falha na conexão');
     }
 
     const data: { message: string, results: Task[] } = await response.json();
@@ -15,8 +15,9 @@ async function getData(): Promise<Task[]> {
     console
 
     return data.results;
+
   } catch (error) {
-    console.error('Failed to fetch data:', error);
+    console.error('Falha ao buscar os dados:', error);
     return []; 
   }
 }
@@ -28,6 +29,7 @@ function TaskList() {
   useEffect(() => {
     async function fetchData() {
       const result = await getData();
+      console.log(result)
       setData(result);
       setLoading(false);
     }
