@@ -1,11 +1,9 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useEffect, useState } from "react";
 
 // This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 export type Task = {
   id: string;
   nome: string;
@@ -81,13 +79,44 @@ export const columns: ColumnDef<Task>[] = [
     accessorKey: "complete",
     header: "",
     cell: ({ row }) => {
+      const taskId = row.original.id;
+      const isCompleted = row.original.finalizada === 1;
+
+      const handleCheckboxChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const isChecked = event.target.checked;
+        
+        const updatedTask = {
+          ...row.original,
+          finalizada: isChecked ? 1 : 0,
+        };
+
+        try {
+          const response = await fetch(`http://localhost:3000/api/updateTask/${taskId}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedTask)
+          });
+
+          if (!response.ok) {
+            throw new Error('Erro ao atualizar a tarefa');
+          }
+
+          console.log("Tarefa atualizada com sucesso");
+        } catch (error) {
+          console.error('Failed to update task:', error);
+        }
+      };
+
       return (
         <div className="flex gap-2">
-          <Checkbox />
+          <input type="checkbox" checked={isCompleted} onChange={handleCheckboxChange} />
           <p>Concluir tarefa</p>
         </div>
       );
     }
   }
 ];
+
 
