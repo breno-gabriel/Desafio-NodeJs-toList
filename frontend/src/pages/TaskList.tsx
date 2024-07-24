@@ -13,8 +13,6 @@ async function getData(): Promise<Task[]> {
 
     const data: { message: string, results: Task[] } = await response.json();
 
-    console
-
     return data.results;
 
   } catch (error) {
@@ -30,7 +28,7 @@ function TaskList() {
   useEffect(() => {
     async function fetchData() {
       const result = await getData();
-      console.log(result)
+      // console.log(result)
       setData(result);
       setLoading(false);
     }
