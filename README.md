@@ -49,7 +49,7 @@ Crie as tabelas necessárias no banco de dados (arquivo init,sql):
 npm start
 O servidor deve estar rodando em http://localhost:3000.
 
-4. Configurar o Frontend (React)
+### 4. Configurar o Frontend (React)
 Instalar Dependências do Frontend
 
 Navegue até a pasta do frontend e instale as dependências:
@@ -84,14 +84,14 @@ Instalar Shadcn
 
 Para instalar e configurar o Shadcn, siga as instruções no documento oficial.
 
-Iniciar o Servidor Frontend
+ ### Iniciar o Servidor Frontend
 
 Inicie o servidor React:
 
 npm start
 O frontend deve estar rodando em http://localhost:3001.
 
-Uso
+### Uso
 Aqui estão as rotas da API disponíveis para a aplicação:
 
 Obter Todos os Membros
