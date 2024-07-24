@@ -17,54 +17,35 @@ Clone o repositório do projeto:
 
 git clone https://github.com/seu-usuario/todolist.git
 cd todolist
-2. Instalar Node.js
+###2. Instalar Node.js
 Para instalar o Node.js, siga as instruções para seu sistema operacional:
 
 Windows/MacOS/Linux: Baixe o instalador do site oficial do Node.js e siga as instruções.
 Verifique a instalação:
 
-bash
-Copy code
 node -v
 npm -v
-3. Configurar o Backend (Node.js)
+
+### 3. Configurar o Backend (Node.js)
 Instalar Dependências do Backend
 
 Navegue até a pasta do backend e instale as dependências:
 
-bash
-Copy code
-cd backend
+cd api
 npm install
 Configurar o Banco de Dados MySQL
 
 Crie um banco de dados MySQL e configure as credenciais no arquivo .env:
 
-plaintext
-Copy code
-DB_HOST=localhost
-DB_USER=seu-usuario
-DB_PASSWORD=sua-senha
-DB_NAME=todolist
-Crie as tabelas necessárias no banco de dados:
+PORT=3000
+DB_HOST=localhost 
+DB_USER=root 
+DB_PASSWORD=acess12345
+DB_NAME=databaseApi
 
-sql
-Copy code
-CREATE TABLE tasks (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(255) NOT NULL,
-  descricao TEXT,
-  prioridade ENUM('Baixa', 'Média', 'Alta') NOT NULL,
-  finalizada TINYINT(1) DEFAULT 0,
-  data_termino DATETIME,
-  id_membro INT
-);
-Iniciar o Servidor Backend
+Crie as tabelas necessárias no banco de dados (arquivo init,sql):
 
-Inicie o servidor Node.js:
 
-bash
-Copy code
 npm start
 O servidor deve estar rodando em http://localhost:3000.
 
@@ -73,16 +54,12 @@ Instalar Dependências do Frontend
 
 Navegue até a pasta do frontend e instale as dependências:
 
-bash
-Copy code
 cd ../frontend
 npm install
 Instalar Tailwind CSS
 
 Configure o Tailwind CSS:
 
-bash
-Copy code
 npx tailwindcss init
 Edite o arquivo tailwind.config.js para incluir os paths do seu projeto:
 
@@ -100,8 +77,6 @@ module.exports = {
 }
 Adicione o Tailwind CSS aos seus estilos no src/index.css:
 
-css
-Copy code
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -113,8 +88,6 @@ Iniciar o Servidor Frontend
 
 Inicie o servidor React:
 
-bash
-Copy code
 npm start
 O frontend deve estar rodando em http://localhost:3001.
 
