@@ -45,7 +45,7 @@ function TaskList() {
     <div className='py-20 px-14 flex flex-col gap-56'>
       <DataTable columns={columns} data={data} />
       <div className='flex justify-end'>
-        <Button  onClick={() => navigate('/createTask')} className="bg-white w-auto">Cadastrar tarefa</Button>
+        <Button  onClick={() => navigate('/registerTask')} className="bg-white w-auto">Cadastrar tarefa</Button>
       </div>
     </div>
   );

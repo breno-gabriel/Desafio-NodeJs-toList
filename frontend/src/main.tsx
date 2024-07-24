@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/task-list" element={<TaskList/>} />
         <Route path="/member-registration" element={<MemberRegistration />} />
         <Route path="/edit/:id" element={<EditTask />} />
-        <Route path="/register" element={<CreateTask />} />
+        <Route path="/registerTask" element={<CreateTask />} />
       </Routes>
     </Router>
   </React.StrictMode>
