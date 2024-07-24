@@ -1,18 +1,18 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table";
-import { useEffect, useState } from "react";
-
-// This type is used to define the shape of our data.
+import {  useNavigate } from 'react-router-dom';
+// import { Checkbox } from "@/components/ui/checkbox";
 export type Task = {
-  id: string;
-  nome: string;
-  descricao: string | null;
-  finalizada: number;
-  data_termino: string | null;
-  prioridade: string;
-  id_membro: string;
-};
+  id: string
+  nome: string
+  descricao: string|null
+  finalizada: number
+  data_termino: string|null 
+  prioridade: string  
+  id_membro: string 
+}
+
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -67,12 +67,9 @@ export const columns: ColumnDef<Task>[] = [
     header: "",
     cell: ({ row }) => {
       const taskId = row.original.id;
+      const navigate = useNavigate();
 
-      const handleEdit = () => {
-        console.log("Edit task with id:", taskId);
-      };
-
-      return <button onClick={handleEdit} className="bg-blue-800">Editar</button>;
+      return <button onClick={() => navigate('/editTask')} className="bg-blue-800">Editar</button>;
     }
   },
   {
@@ -118,5 +115,3 @@ export const columns: ColumnDef<Task>[] = [
     }
   }
 ];
-
-
