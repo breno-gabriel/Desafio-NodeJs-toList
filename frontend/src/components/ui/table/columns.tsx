@@ -69,7 +69,7 @@ export const columns: ColumnDef<Task>[] = [
       const taskId = row.original.id;
       const navigate = useNavigate();
 
-      return <button onClick={() => navigate('/editTask')} className="bg-blue-800">Editar</button>;
+      return <button onClick={() => navigate('/editTask/:taskId')} className="bg-blue-800">Editar</button>;
     }
   },
   {
