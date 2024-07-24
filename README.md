@@ -15,7 +15,6 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
 
 Clone o repositório do projeto:
 
-```bash
 git clone https://github.com/seu-usuario/todolist.git
 cd todolist
 2. Instalar Node.js
